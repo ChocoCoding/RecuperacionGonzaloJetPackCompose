@@ -71,7 +71,6 @@ fun AppLogin(navController: NavController,viewModel: LoginViewModel){
                 }else{
                     viewModel.intentos--
                     if(viewModel.intentos <= 0){
-                        //Toast.makeText(context, "Te has quedado sin intentos", Toast.LENGTH_SHORT).show()
                         viewModel.showDialogIntentos.value = true
                         viewModel.intentos = 3;
 

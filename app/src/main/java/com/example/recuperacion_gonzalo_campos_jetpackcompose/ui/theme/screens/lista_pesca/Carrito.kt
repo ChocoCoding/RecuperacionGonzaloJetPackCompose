@@ -54,10 +54,6 @@ fun AppCarrito(navController: NavController, viewModelListadoPesca: ListadoPesca
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back")
                     }
-                },
-                actions = {
-                    CarritoCompraIcono(navController = navController, viewModelListadoPesca = viewModelListadoPesca)
-
                 }
             )
         },

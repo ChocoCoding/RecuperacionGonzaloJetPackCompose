@@ -117,7 +117,6 @@ fun App(navController: NavController,viewModelListadoPesca: ListadoPescaViewMode
                             onCheckedChange = {isChecked ->
                                 seleccionarTodos = isChecked
                                 viewModelListadoPesca.seleccionarTodos(isChecked)
-
                             })
                     }
                 }
@@ -132,7 +131,7 @@ fun App(navController: NavController,viewModelListadoPesca: ListadoPescaViewMode
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(bottom = 56.dp) // dejar espacio para el BottomAppBar
+                .padding(bottom = 56.dp)
         ) {
 
 

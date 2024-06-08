@@ -24,9 +24,7 @@ class LoginViewModel : ViewModel(){
     }
 
 
-    //GUARDAR USUARIOS
     private val FILENAME = "contactos.txt"
-    //fichero en AVD en ubicación-> View-> Tool Windows -> Device Explorer /data/user/0/com.example.NombreApp/files/items.txt-
     fun guardarUsuario(context: Context, nombre: String, contrasena: String) {
         val file = File(context.filesDir, FILENAME)
         file.appendText("$nombre,$contrasena\n")
