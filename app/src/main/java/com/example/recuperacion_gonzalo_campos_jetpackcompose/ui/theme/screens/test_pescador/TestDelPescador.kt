@@ -37,8 +37,6 @@ import com.example.recuperacion_gonzalo_campos_jetpackcompose.ui.theme.viewmodel
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun AppTestPescador(navController: NavController,testDelPescadorViewModel: TestDelPescadorViewModel) {
-
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -52,11 +50,11 @@ fun AppTestPescador(navController: NavController,testDelPescadorViewModel: TestD
             )
         }
     ) {
-        val preguntaActual = testDelPescadorViewModel.preguntaActual
+        //val preguntaActual = testDelPescadorViewModel.preguntaActual
 
         Column(modifier = Modifier.padding(16.dp),
             ) {
-            if (preguntaActual.opciones.isEmpty()) {
+            if (testDelPescadorViewModel.preguntaActual.opciones.isEmpty()) {
                 Column(
                     modifier = Modifier
                     .fillMaxWidth(),
@@ -65,7 +63,7 @@ fun AppTestPescador(navController: NavController,testDelPescadorViewModel: TestD
                     Text(
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold,
-                        text = "${preguntaActual.text}\n\nHas acertado: ${testDelPescadorViewModel.aciertos}")
+                        text = "${testDelPescadorViewModel.preguntaActual.text}\n\nHas acertado: ${testDelPescadorViewModel.aciertos}")
                     Spacer(modifier = Modifier.padding(top = 20.dp))
                     Button(onClick = { testDelPescadorViewModel.resetTest() }) {
                         Text("Reiniciar Test")
@@ -74,10 +72,10 @@ fun AppTestPescador(navController: NavController,testDelPescadorViewModel: TestD
 
             } else {
                 Text(
-                    text = preguntaActual.text,
+                    text = testDelPescadorViewModel.preguntaActual.text,
                     fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold,)
-                preguntaActual.opciones.forEach { respuesta ->
+                    fontWeight = FontWeight.Bold)
+                testDelPescadorViewModel.preguntaActual.opciones.forEach { respuesta ->
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -85,6 +83,7 @@ fun AppTestPescador(navController: NavController,testDelPescadorViewModel: TestD
                         RadioButton(
                             selected = false,
                             onClick = { testDelPescadorViewModel.enviarRespuesta(respuesta) }
+
                         )
                         Text(
                             modifier = Modifier.padding(top = 12.dp),

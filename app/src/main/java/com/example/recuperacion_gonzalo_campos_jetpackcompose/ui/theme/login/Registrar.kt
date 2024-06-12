@@ -57,13 +57,14 @@ fun AppRegistrar(navController: NavController,viewModel: LoginViewModel){
                 if (viewModel.username.contains("@") && viewModel.password.length >= 7) {
                     viewModel.addUser(User(viewModel.username, viewModel.password))
                     Toast.makeText(context, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show()
+                    viewModel.buttonEnabled = true
                     navController.navigate(Screens.Login.route)
                 } else {
                     Toast.makeText(context, "Usuario debe contener '@' y contraseña debe tener mínimo 7 caracteres", Toast.LENGTH_SHORT).show()
                 }
             }
         ) {
-            Text("Register")
+            Text("Registrarse")
         }
     }
 

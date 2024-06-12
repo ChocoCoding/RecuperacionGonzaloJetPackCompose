@@ -1,7 +1,9 @@
 package com.example.recuperacion_gonzalo_campos_jetpackcompose.ui.theme.viewmodel
 
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.recuperacion_gonzalo_campos_jetpackcompose.ui.theme.entities.ArticulosPesca
 import com.example.recuperacion_gonzalo_campos_jetpackcompose.ui.theme.entities.getListaArticulosPesca
@@ -9,12 +11,13 @@ class ListadoPescaViewModel: ViewModel() {
 
         var articulosSeleccionados = mutableStateOf(listOf<ArticulosPesca>());
         var contadorArticulos = mutableIntStateOf(0);
-        var seleccionarTodos = mutableStateOf(false)
+        var selecionadosTodos by mutableStateOf(false)
         var showDialog =  mutableStateOf(false)
 
         fun confirmarCompra() {
             showDialog.value = true
         }
+
 
         fun onArticuloSeleccionadoChange(articulo: ArticulosPesca, seleccionado: Boolean){
             val articuloSeleccionadoActual = articulosSeleccionados.value.toMutableList();
@@ -54,7 +57,5 @@ class ListadoPescaViewModel: ViewModel() {
             articulosSeleccionados.value = emptyList()
             contadorArticulos.value = 0
         }
-
-
 
 }

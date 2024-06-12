@@ -8,9 +8,9 @@ data class User(val username: String,val password: String) {
 
 fun getListaUsuarios():List<User>{
     val  listaUsuarios : MutableList<User> = mutableStateListOf(
-        User("u1", "u1"),
-        User("u2", "u2"),
-        User("u3", "u3")
+        User("gonzalo@gmail.com", "abc123."),
+        User("gonzalo@teis.com", "abc123."),
+        User("gonzalo@teis.gal", "abc123.")
 
     )
     return listaUsuarios;

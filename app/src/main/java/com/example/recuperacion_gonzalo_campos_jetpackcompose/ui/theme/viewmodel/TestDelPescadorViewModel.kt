@@ -32,7 +32,7 @@ class TestDelPescadorViewModel : ViewModel(){
     }
 
     fun showSiguientePregunta(){
-        indicePreguntaActual++
+        indicePreguntaActual++ //1
         if (indicePreguntaActual < getListaPreguntas().size){
             preguntaActual = getListaPreguntas()[indicePreguntaActual]
         }else preguntaActual = Preguntas("No hay más preguntas.", emptyList(), "")

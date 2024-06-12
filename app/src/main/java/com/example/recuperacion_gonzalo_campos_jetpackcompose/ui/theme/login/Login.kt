@@ -31,7 +31,6 @@ fun AppLogin(navController: NavController,viewModel: LoginViewModel){
             viewModel = viewModel,
             onDismiss = {
                 viewModel.showDialogIntentos.value = false
-                navController.navigate(route = Screens.Menu.route)
             }
         )
     }
@@ -63,20 +62,20 @@ fun AppLogin(navController: NavController,viewModel: LoginViewModel){
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
+            enabled = viewModel.buttonEnabled,
             onClick = {
                 val isValidCredential = viewModel.users.any{it.username == viewModel.username && it.password == viewModel.password}
                 if (isValidCredential){
-                    viewModel.guardarUsuario(context,viewModel.username,viewModel.password)
                     navController.navigate(Screens.Menu.route)
                 }else{
                     viewModel.intentos--
                     if(viewModel.intentos <= 0){
                         viewModel.showDialogIntentos.value = true
                         viewModel.intentos = 3;
-
+                        viewModel.buttonEnabled = false
 
                     }else{
-                        Toast.makeText(context, "Intentos restantes: ${viewModel.intentos}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "El usuario no esta registrado,Intentos restantes: ${viewModel.intentos}", Toast.LENGTH_SHORT).show()
                         viewModel.username = ""
                         viewModel.password = ""
                     }

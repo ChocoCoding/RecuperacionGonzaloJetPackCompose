@@ -15,6 +15,8 @@ class LoginViewModel : ViewModel(){
     var password by mutableStateOf("");
     var intentos by mutableIntStateOf(3)
 
+    var buttonEnabled by mutableStateOf(true)
+
     var showDialogIntentos = mutableStateOf(false)
 
     var users = getListaUsuarios().toMutableList()
